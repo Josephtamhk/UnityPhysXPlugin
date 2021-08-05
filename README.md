@@ -5,7 +5,7 @@ This fork is specifically set up for building on macOS. All references to CUDA h
 
 Tested on Xcode 12.2 on macOS 10.15.
 
-<iframe src="https://giphy.com/embed/ccjpXXMEhVpYaJsARV" width="480" height="302" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/ccjpXXMEhVpYaJsARV">via GIPHY</a></p>
+![](https://media2.giphy.com/media/ccjpXXMEhVpYaJsARV/giphy.gif?cid=790b7611be7f642ee71792bcd1e5a256991de528bc76d207&rid=giphy.gif&ct=g)
 
 Prerequisites
 ---
