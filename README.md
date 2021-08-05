@@ -21,7 +21,7 @@ Build Instructions
 1. In `<PhysX Dir>/physx/buildtools/presets/public/mac64.xml` make sure `PX_GENERATE_STATIC_LIBRARIES` is set to `True`.
 1. Use `generate_projects.sh` to generate your Xcode project. [Additional information](https://gameworksdocs.nvidia.com/PhysX/4.1/documentation/platformreadme/mac/readme_mac.html)
     1. You may have to **remove** `-Werror` and **add** `-Wanon-enum-enum-conversion -Wno-alloca` to the compiler flags in `./physx/source/compiler/cmake/mac/CMakeLists.txt`
-1. Build the PhysX project, use the ALL_BUILD scheme.
+1. Build the PhysX project, use the ALL_BUILD scheme in Release.
 
 ### Build Native Libraries on macOS
 
@@ -35,7 +35,7 @@ Build Instructions
 
 Note: The C# wrapper built using .NET 5.0 on macOS did not work for me. Using Windows to build the wrapper, however, did work. You may be luckier! Give it a try.
 1. Copy your local repository over to your Windows partition/machine.
-1. Build PhysX for Windows following the instructions for nvidia's [plugin repository](https://github.com/NVIDIAGameWorks/UnityPhysXPlugin)
+1. Build PhysX (for Release) for Windows following the instructions for nvidia's [plugin repository](https://github.com/NVIDIAGameWorks/UnityPhysXPlugin)
 1. Using nvidia's fork as a base, replace the Header, Helpers, and Interface folder from this fork in `./NVIDIA.PhysX.Native/`.
 1. Build the VS2017 solution and collect the `NVIDIA.PhysX.dll` C# library.
 1. Back to your macOS machine. Put `NVIDIA.PhysX.dll` in your Unity's plugins directory.
