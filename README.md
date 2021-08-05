@@ -3,7 +3,7 @@ Experimental Unity package to enable access to NVIDIA PhysX SDK 4 from within Un
 
 This fork is specifically set up for building on macOS. All references to CUDA have been commented out.
 
-Tested Unity 2020.2.0f1, built with Xcode 12.2 on macOS 10.15.
+Tested on Unity 2020.2.0f1, built with Xcode 12.2 on macOS 10.15.
 
 ![](https://media2.giphy.com/media/ccjpXXMEhVpYaJsARV/giphy.gif?cid=790b7611be7f642ee71792bcd1e5a256991de528bc76d207&rid=giphy.gif&ct=g)
 
