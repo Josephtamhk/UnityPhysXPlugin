@@ -65,13 +65,6 @@ public partial class PxFoundation {
     return ret;
   }
 
-  public PxCudaContextManager createCudaContextManager(string dllPath) {
-    global::System.IntPtr cPtr = NativePINVOKE.PxFoundation_createCudaContextManager(swigCPtr, dllPath);
-    PxCudaContextManager ret = (cPtr == global::System.IntPtr.Zero) ? null : PxCudaContextManager.getWrapper(cPtr, false);
-    if (NativePINVOKE.SWIGPendingException.Pending) throw NativePINVOKE.SWIGPendingException.Retrieve();
-    return ret;
-  }
-
   public PxPvd createPvd() {
     global::System.IntPtr cPtr = NativePINVOKE.PxFoundation_createPvd(swigCPtr);
     PxPvd ret = (cPtr == global::System.IntPtr.Zero) ? null : PxPvd.getWrapper(cPtr, false);

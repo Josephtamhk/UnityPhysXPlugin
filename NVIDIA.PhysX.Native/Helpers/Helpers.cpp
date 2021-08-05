@@ -27,19 +27,19 @@
 
 #include <header.h>
 
-physx::PxCudaContextManager* PxFoundation_createCudaContextManager(physx::PxFoundation& foundation, const char* dllPath)
-{
-    struct GpuLoadHook : PxGpuLoadHook
-    {
-        std::string dllPath;
-        virtual const char* getPhysXGpuDllName() const { return dllPath.c_str(); }
-    };
-    static GpuLoadHook sl_gpuLoadHook;
-    sl_gpuLoadHook.dllPath = dllPath;
-    PxSetPhysXGpuLoadHook(&sl_gpuLoadHook);
-    physx::PxCudaContextManagerDesc cudaDesc;
-    return PxCreateCudaContextManager(foundation, cudaDesc);
-}
+//physx::PxCudaContextManager* PxFoundation_createCudaContextManager(physx::PxFoundation& foundation, const char* dllPath)
+//{
+//    struct GpuLoadHook : PxGpuLoadHook
+//    {
+//        std::string dllPath;
+//        virtual const char* getPhysXGpuDllName() const { return dllPath.c_str(); }
+//    };
+//    static GpuLoadHook sl_gpuLoadHook;
+//    sl_gpuLoadHook.dllPath = dllPath;
+//    PxSetPhysXGpuLoadHook(&sl_gpuLoadHook);
+//    physx::PxCudaContextManagerDesc cudaDesc;
+//    return PxCreateCudaContextManager(foundation, cudaDesc);
+//}
 
 //void physx::PxErrorToExceptionCallback::reportError(physx::PxErrorCode::Enum code, const char* message, const char* file, int line)
 //{

@@ -550,7 +550,6 @@ SWIGINTERN physx::PxPvdSceneFlag::Enum physx_PxPvdSceneClient_getScenePvdFlags(p
         
 SWIGINTERN physx::PxFoundation *physx_PxFoundation_create(physx::PxVersion physicsVersion,physx::PxAllocatorCallback &allocatorCallback,physx::PxErrorCallback &errorCallback){ return PxCreateFoundation(physicsVersion, allocatorCallback, errorCallback); }
 SWIGINTERN physx::PxPhysics *physx_PxFoundation_createPhysics__SWIG_0(physx::PxFoundation *self,physx::PxVersion physicsVersion,physx::PxTolerancesScale const &scale=physx::PxTolerancesScale(),physx::PxPvd *pvd=nullptr){ return PxCreatePhysics(physicsVersion, *self, scale, false, pvd); }
-SWIGINTERN physx::PxCudaContextManager *physx_PxFoundation_createCudaContextManager(physx::PxFoundation *self,char const *dllPath){ return PxFoundation_createCudaContextManager(*self, dllPath); }
 SWIGINTERN physx::PxPvd *physx_PxFoundation_createPvd(physx::PxFoundation *self){ return physx::PxCreatePvd(*self); }
 SWIGINTERN physx::PxCooking *physx_PxFoundation_createCooking(physx::PxFoundation *self,physx::PxVersion physicsVersion,physx::PxCookingParams const &params){ return PxCreateCooking(physicsVersion, *self, params); }
 SWIGINTERN physx::PxTriangleMesh *physx_PxPhysics_getTriangleMesh(physx::PxPhysics *self,physx::PxU32 index){ physx::PxTriangleMesh* tm; self->getTriangleMeshes(&tm, 1, index); return tm; }
@@ -7916,28 +7915,6 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_NVIDIAfPhysX_PxSceneDesc_cpuDispatcher_get_
   
   arg1 = (physx::PxSceneDesc *)jarg1; 
   result = (physx::PxCpuDispatcher *) ((arg1)->cpuDispatcher);
-  jresult = (void *)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void SWIGSTDCALL CSharp_NVIDIAfPhysX_PxSceneDesc_cudaContextManager_set___(void * jarg1, void * jarg2) {
-  physx::PxSceneDesc *arg1 = (physx::PxSceneDesc *) 0 ;
-  physx::PxCudaContextManager *arg2 = (physx::PxCudaContextManager *) 0 ;
-  
-  arg1 = (physx::PxSceneDesc *)jarg1; 
-  arg2 = (physx::PxCudaContextManager *)jarg2; 
-  if (arg1) (arg1)->cudaContextManager = arg2;
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_NVIDIAfPhysX_PxSceneDesc_cudaContextManager_get___(void * jarg1) {
-  void * jresult ;
-  physx::PxSceneDesc *arg1 = (physx::PxSceneDesc *) 0 ;
-  physx::PxCudaContextManager *result = 0 ;
-  
-  arg1 = (physx::PxSceneDesc *)jarg1; 
-  result = (physx::PxCudaContextManager *) ((arg1)->cudaContextManager);
   jresult = (void *)result; 
   return jresult;
 }
@@ -19290,32 +19267,6 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_NVIDIAfPhysX_PxFoundation_createPhysics__SW
 }
 
 
-SWIGEXPORT void * SWIGSTDCALL CSharp_NVIDIAfPhysX_PxFoundation_createCudaContextManager___(void * jarg1, char * jarg2) {
-  void * jresult ;
-  physx::PxFoundation *arg1 = (physx::PxFoundation *) 0 ;
-  char *arg2 = (char *) 0 ;
-  physx::PxCudaContextManager *result = 0 ;
-  
-  arg1 = (physx::PxFoundation *)jarg1; 
-  arg2 = (char *)jarg2; 
-  {
-    try {
-      result = (physx::PxCudaContextManager *)physx_PxFoundation_createCudaContextManager(arg1,(char const *)arg2);
-    } catch(std::exception e) {
-      {
-        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
-      };
-    } catch(...) {
-      {
-        SWIG_CSharpException(SWIG_RuntimeError, "Unknown exception"); return 0; 
-      };
-    }
-  }
-  jresult = (void *)result; 
-  return jresult;
-}
-
-
 SWIGEXPORT void * SWIGSTDCALL CSharp_NVIDIAfPhysX_PxFoundation_createPvd___(void * jarg1) {
   void * jresult ;
   physx::PxFoundation *arg1 = (physx::PxFoundation *) 0 ;
@@ -21681,30 +21632,6 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_NVIDIAfPhysX_PxScene_getCpuDispatcher___(vo
   {
     try {
       result = (physx::PxCpuDispatcher *)((physx::PxScene const *)arg1)->getCpuDispatcher();
-    } catch(std::exception e) {
-      {
-        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
-      };
-    } catch(...) {
-      {
-        SWIG_CSharpException(SWIG_RuntimeError, "Unknown exception"); return 0; 
-      };
-    }
-  }
-  jresult = (void *)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void * SWIGSTDCALL CSharp_NVIDIAfPhysX_PxScene_getCudaContextManager___(void * jarg1) {
-  void * jresult ;
-  physx::PxScene *arg1 = (physx::PxScene *) 0 ;
-  physx::PxCudaContextManager *result = 0 ;
-  
-  arg1 = (physx::PxScene *)jarg1; 
-  {
-    try {
-      result = (physx::PxCudaContextManager *)((physx::PxScene const *)arg1)->getCudaContextManager();
     } catch(std::exception e) {
       {
         SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
@@ -33459,50 +33386,6 @@ SWIGEXPORT unsigned int SWIGSTDCALL CSharp_NVIDIAfPhysX_PxAggregate_getSelfColli
   }
   jresult = result; 
   return jresult;
-}
-
-
-SWIGEXPORT unsigned int SWIGSTDCALL CSharp_NVIDIAfPhysX_PxCudaContextManager_contextIsValid___(void * jarg1) {
-  unsigned int jresult ;
-  physx::PxCudaContextManager *arg1 = (physx::PxCudaContextManager *) 0 ;
-  bool result;
-  
-  arg1 = (physx::PxCudaContextManager *)jarg1; 
-  {
-    try {
-      result = (bool)((physx::PxCudaContextManager const *)arg1)->contextIsValid();
-    } catch(std::exception e) {
-      {
-        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return 0; 
-      };
-    } catch(...) {
-      {
-        SWIG_CSharpException(SWIG_RuntimeError, "Unknown exception"); return 0; 
-      };
-    }
-  }
-  jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void SWIGSTDCALL CSharp_NVIDIAfPhysX_PxCudaContextManager_release___(void * jarg1) {
-  physx::PxCudaContextManager *arg1 = (physx::PxCudaContextManager *) 0 ;
-  
-  arg1 = (physx::PxCudaContextManager *)jarg1; 
-  {
-    try {
-      (arg1)->release();
-    } catch(std::exception e) {
-      {
-        SWIG_CSharpException(SWIG_RuntimeError, e.what()); return ; 
-      };
-    } catch(...) {
-      {
-        SWIG_CSharpException(SWIG_RuntimeError, "Unknown exception"); return ; 
-      };
-    }
-  }
 }
 
 

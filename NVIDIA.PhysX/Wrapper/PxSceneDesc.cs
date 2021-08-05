@@ -276,19 +276,6 @@ public partial class PxSceneDesc {
     } 
   }
 
-  public PxCudaContextManager cudaContextManager {
-    set {
-      NativePINVOKE.PxSceneDesc_cudaContextManager_set(swigCPtr, PxCudaContextManager.getCPtr(value));
-      if (NativePINVOKE.SWIGPendingException.Pending) throw NativePINVOKE.SWIGPendingException.Retrieve();
-    } 
-    get {
-      global::System.IntPtr cPtr = NativePINVOKE.PxSceneDesc_cudaContextManager_get(swigCPtr);
-      PxCudaContextManager ret = (cPtr == global::System.IntPtr.Zero) ? null : PxCudaContextManager.getWrapper(cPtr, false);
-      if (NativePINVOKE.SWIGPendingException.Pending) throw NativePINVOKE.SWIGPendingException.Retrieve();
-      return ret;
-    } 
-  }
-
   public PxPruningStructureType staticStructure {
     set {
       NativePINVOKE.PxSceneDesc_staticStructure_set(swigCPtr, (int)value);

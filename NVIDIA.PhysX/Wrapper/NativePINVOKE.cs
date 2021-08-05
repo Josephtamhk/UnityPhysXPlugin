@@ -1147,12 +1147,6 @@ class NativePINVOKE {
   [global::System.Runtime.InteropServices.DllImport("NVIDIA.PhysX.Native", EntryPoint="CSharp_NVIDIAfPhysX_PxSceneDesc_cpuDispatcher_get___")]
   public static extern global::System.IntPtr PxSceneDesc_cpuDispatcher_get(global::System.Runtime.InteropServices.HandleRef jarg1);
 
-  [global::System.Runtime.InteropServices.DllImport("NVIDIA.PhysX.Native", EntryPoint="CSharp_NVIDIAfPhysX_PxSceneDesc_cudaContextManager_set___")]
-  public static extern void PxSceneDesc_cudaContextManager_set(global::System.Runtime.InteropServices.HandleRef jarg1, global::System.Runtime.InteropServices.HandleRef jarg2);
-
-  [global::System.Runtime.InteropServices.DllImport("NVIDIA.PhysX.Native", EntryPoint="CSharp_NVIDIAfPhysX_PxSceneDesc_cudaContextManager_get___")]
-  public static extern global::System.IntPtr PxSceneDesc_cudaContextManager_get(global::System.Runtime.InteropServices.HandleRef jarg1);
-
   [global::System.Runtime.InteropServices.DllImport("NVIDIA.PhysX.Native", EntryPoint="CSharp_NVIDIAfPhysX_PxSceneDesc_staticStructure_set___")]
   public static extern void PxSceneDesc_staticStructure_set(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
 
@@ -3118,9 +3112,6 @@ class NativePINVOKE {
   [global::System.Runtime.InteropServices.DllImport("NVIDIA.PhysX.Native", EntryPoint="CSharp_NVIDIAfPhysX_PxFoundation_createPhysics__SWIG_2___")]
   public static extern global::System.IntPtr PxFoundation_createPhysics__SWIG_2(global::System.Runtime.InteropServices.HandleRef jarg1, int jarg2);
 
-  [global::System.Runtime.InteropServices.DllImport("NVIDIA.PhysX.Native", EntryPoint="CSharp_NVIDIAfPhysX_PxFoundation_createCudaContextManager___")]
-  public static extern global::System.IntPtr PxFoundation_createCudaContextManager(global::System.Runtime.InteropServices.HandleRef jarg1, string jarg2);
-
   [global::System.Runtime.InteropServices.DllImport("NVIDIA.PhysX.Native", EntryPoint="CSharp_NVIDIAfPhysX_PxFoundation_createPvd___")]
   public static extern global::System.IntPtr PxFoundation_createPvd(global::System.Runtime.InteropServices.HandleRef jarg1);
 
@@ -3387,9 +3378,6 @@ class NativePINVOKE {
 
   [global::System.Runtime.InteropServices.DllImport("NVIDIA.PhysX.Native", EntryPoint="CSharp_NVIDIAfPhysX_PxScene_getCpuDispatcher___")]
   public static extern global::System.IntPtr PxScene_getCpuDispatcher(global::System.Runtime.InteropServices.HandleRef jarg1);
-
-  [global::System.Runtime.InteropServices.DllImport("NVIDIA.PhysX.Native", EntryPoint="CSharp_NVIDIAfPhysX_PxScene_getCudaContextManager___")]
-  public static extern global::System.IntPtr PxScene_getCudaContextManager(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("NVIDIA.PhysX.Native", EntryPoint="CSharp_NVIDIAfPhysX_PxScene_createClient___")]
   public static extern byte PxScene_createClient(global::System.Runtime.InteropServices.HandleRef jarg1);
@@ -4788,12 +4776,6 @@ class NativePINVOKE {
 
   [global::System.Runtime.InteropServices.DllImport("NVIDIA.PhysX.Native", EntryPoint="CSharp_NVIDIAfPhysX_PxAggregate_getSelfCollision___")]
   public static extern bool PxAggregate_getSelfCollision(global::System.Runtime.InteropServices.HandleRef jarg1);
-
-  [global::System.Runtime.InteropServices.DllImport("NVIDIA.PhysX.Native", EntryPoint="CSharp_NVIDIAfPhysX_PxCudaContextManager_contextIsValid___")]
-  public static extern bool PxCudaContextManager_contextIsValid(global::System.Runtime.InteropServices.HandleRef jarg1);
-
-  [global::System.Runtime.InteropServices.DllImport("NVIDIA.PhysX.Native", EntryPoint="CSharp_NVIDIAfPhysX_PxCudaContextManager_release___")]
-  public static extern void PxCudaContextManager_release(global::System.Runtime.InteropServices.HandleRef jarg1);
 
   [global::System.Runtime.InteropServices.DllImport("NVIDIA.PhysX.Native", EntryPoint="CSharp_NVIDIAfPhysX_PxJoint_getActor0___")]
   public static extern global::System.IntPtr PxJoint_getActor0(global::System.Runtime.InteropServices.HandleRef jarg1);

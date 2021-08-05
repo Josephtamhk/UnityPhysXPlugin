@@ -242,13 +242,6 @@ public partial class PxScene {
     return ret;
   }
 
-  public PxCudaContextManager getCudaContextManager() {
-    global::System.IntPtr cPtr = NativePINVOKE.PxScene_getCudaContextManager(swigCPtr);
-    PxCudaContextManager ret = (cPtr == global::System.IntPtr.Zero) ? null : PxCudaContextManager.getWrapper(cPtr, false);
-    if (NativePINVOKE.SWIGPendingException.Pending) throw NativePINVOKE.SWIGPendingException.Retrieve();
-    return ret;
-  }
-
   public byte createClient() {
     byte ret = NativePINVOKE.PxScene_createClient(swigCPtr);
     if (NativePINVOKE.SWIGPendingException.Pending) throw NativePINVOKE.SWIGPendingException.Retrieve();
