@@ -15,7 +15,7 @@ Prerequisites
 
 Building Instructions
 ---
-1. Build this fork of PhysX 4.1 that has some minor fixes for building PhysX 4.1 using NDK v23's cmake toolchain.
+1. Build [this fork](https://github.com/prnthp/PhysX) of PhysX 4.1 that has some minor fixes for building PhysX 4.1 using NDK v23's cmake toolchain.
 2. Back to this repo, in the NVIDIA.PhysX.Native folder, edit the CMakeLists.txt file to reflect your PhysX SDK location and your target (armeabi-v7a or arm64-v8a).
 4. Generate Makefile: `cmake . -DCMAKE_TOOLCHAIN_FILE=$NDK/build/cmake/android.toolchain.cmake -DANDROID_ABI=arm64-v8a -DANDROID_NATIVE_API_LEVEL=19`
 5. `make` and collect .so binaries.
