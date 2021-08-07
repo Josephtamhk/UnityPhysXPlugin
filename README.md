@@ -1,22 +1,27 @@
-# UnityPhysXPlugin
+# UnityPhysXPlugin - Android (armeabi-v7a + arm64-v8a, IL2CPP support)
 Experimental Unity package to enable access to NVIDIA PhysX SDK 4 from within Unity.  
 
-Build
------
+This fork is specifically set up for building for Android. All references to CUDA have been commented out.
 
-- Get PhysX 4.1 from GitHub (https://github.com/NVIDIAGameWorks/PhysX),
+Tested on Unity 2020.2.0f1, built with NDK v23's cmake toolchain on macOS 10.15
 
-- In <PhysX Folder>\physx\buildtools\presets\public\vc15win64.xml change PX_GENERATE_STATIC_LIBRARIES to True.
+![](https://media2.giphy.com/media/ccjpXXMEhVpYaJsARV/giphy.gif?cid=790b7611be7f642ee71792bcd1e5a256991de528bc76d207&rid=giphy.gif&ct=g)
 
-- Build PhysX and create PHYSX_DIR environment variable pointng to its root.
+Prerequisites
+---
+- Recent Android NDK
+- $NDK environment variable set to your NDK path
+- For arm64-v8a, you'll need to adapt the instructions in the macos-il2cpp branch of this repo, a special SWIG fork is required.
 
-- Install CMake 3.14+ (https://cmake.org/) and SWIG 4.0+ (http://www.swig.org/) and add them to your PATH environment variable.
-
-- Run .\generate_projects.cmd file.
-
-- Open and build .\Build\NVIDIA.PhysX.sln solution in Visual Studio 2017.
+Building Instructions
+---
+1. Build this fork of PhysX 4.1 that has some minor fixes for building PhysX 4.1 using NDK v23's cmake toolchain.
+2. Back to this repo, in the NVIDIA.PhysX.Native folder, edit the CMakeLists.txt file to reflect your PhysX SDK location and your target (armeabi-v7a or arm64-v8a).
+4. Generate Makefile: `cmake . -DCMAKE_TOOLCHAIN_FILE=$NDK/build/cmake/android.toolchain.cmake -DANDROID_ABI=arm64-v8a -DANDROID_NATIVE_API_LEVEL=19`
+5. `make` and collect .so binaries.
+6. Follow the instructions in the main or macos-il2cpp branch to build the C# wrappers. Or just get them from here.
 
 Run
 ---
 
-- Start Unity and open .\Unity\PhysX project.
+Start Unity and open `.\Unity\PhysX` project and try out the sample scenes.
