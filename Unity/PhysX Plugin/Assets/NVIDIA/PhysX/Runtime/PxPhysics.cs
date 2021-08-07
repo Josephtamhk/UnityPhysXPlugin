@@ -15,7 +15,7 @@ namespace NVIDIA.PhysX.Unity
 
         public static PX.PxPhysics apiPhysics { get { return sm_physics; } }
 
-        public static PxCudaContextManager cudaContextManager { get { return sm_cudaContextManager; } }
+        // public static PxCudaContextManager cudaContextManager { get { return sm_cudaContextManager; } }
 
         public static PxCpuDispatcher cpuDispatcher { get { return sm_cpuDispatcher; } }
 
@@ -84,7 +84,7 @@ namespace NVIDIA.PhysX.Unity
                 else dllPath = UnityEngine.Application.dataPath.Replace("\\", "/") + "/Plugins/PhysXGpu_64.dll";
 
                 //Debug.Log("dllPath - " + dllPath);
-                sm_cudaContextManager = sm_foundation.createCudaContextManager(dllPath);
+                // sm_cudaContextManager = sm_foundation.createCudaContextManager(dllPath);
             }
 
             sm_noMaterial = sm_physics.createMaterial(0.5f, 0.5f, 0);
@@ -102,8 +102,8 @@ namespace NVIDIA.PhysX.Unity
             sm_noMaterial?.release();
             sm_noMaterial = null;
 
-            sm_cudaContextManager?.release();
-            sm_cudaContextManager = null;
+            // sm_cudaContextManager?.release();
+            // sm_cudaContextManager = null;
 
             sm_cpuDispatcher?.release();
             sm_cpuDispatcher = null;
@@ -184,8 +184,8 @@ namespace NVIDIA.PhysX.Unity
         static PX.PxPvd sm_pvd;
         [NonSerialized]
         static PX.PxPhysics sm_physics;
-        [NonSerialized]
-        static PX.PxCudaContextManager sm_cudaContextManager;
+        // [NonSerialized]
+        // static PX.PxCudaContextManager sm_cudaContextManager;
         [NonSerialized]
         static PX.PxDefaultCpuDispatcher sm_cpuDispatcher;
         [NonSerialized]

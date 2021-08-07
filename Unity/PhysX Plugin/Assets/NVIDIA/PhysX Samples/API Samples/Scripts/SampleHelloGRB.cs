@@ -96,27 +96,27 @@ public class SampleHelloGRB : SampleBase
         if (m_enableGRB)
         {
             // Trying to enable GRB
-#if UNITY_EDITOR
-            string dllPath = Path.GetFullPath("./Assets/NVIDIA/PhysX/Runtime/Plugins/x86_64/PhysXGpu_64.dll");
-#else
-            string dllPath = UnityEngine.Application.dataPath.Replace("\\", "/") + "/Plugins/PhysXGpu_64.dll";
-#endif
-            try { m_cudaContextManager = foundation.createCudaContextManager(dllPath); }
-            catch (Exception e) { Debug.LogException(e); }
-
-            var cudaContextManager = m_cudaContextManager;
-            if (cudaContextManager != null)
-            {
-                if (cudaContextManager.contextIsValid())
-                {
-                    sceneDesc.cudaContextManager = cudaContextManager;
-                    sceneDesc.flags |= PxSceneFlag.ENABLE_GPU_DYNAMICS;
-                    sceneDesc.broadPhaseType = PxBroadPhaseType.GPU;
-                }
-                else
-                    Debug.LogWarning("GPU dynamics is not available on this hardware. Falling back to CPU.");
-            }
-            else
+// #if UNITY_EDITOR
+//             string dllPath = Path.GetFullPath("./Assets/NVIDIA/PhysX/Runtime/Plugins/x86_64/PhysXGpu_64.dll");
+// #else
+//             string dllPath = UnityEngine.Application.dataPath.Replace("\\", "/") + "/Plugins/PhysXGpu_64.dll";
+// #endif
+//             try { m_cudaContextManager = foundation.createCudaContextManager(dllPath); }
+//             catch (Exception e) { Debug.LogException(e); }
+//
+//             var cudaContextManager = m_cudaContextManager;
+//             if (cudaContextManager != null)
+//             {
+//                 if (cudaContextManager.contextIsValid())
+//                 {
+//                     sceneDesc.cudaContextManager = cudaContextManager;
+//                     sceneDesc.flags |= PxSceneFlag.ENABLE_GPU_DYNAMICS;
+//                     sceneDesc.broadPhaseType = PxBroadPhaseType.GPU;
+//                 }
+//                 else
+//                     Debug.LogWarning("GPU dynamics is not available on this hardware. Falling back to CPU.");
+//             }
+//             else
                 Debug.LogWarning("Can't create CUDA context manager. Falling back to CPU.");
         }
 
@@ -165,8 +165,8 @@ public class SampleHelloGRB : SampleBase
         m_physicsMaterial = null;
         m_cpuDispatcher?.release();
         m_cpuDispatcher = null;
-        m_cudaContextManager?.release();
-        m_cudaContextManager = null;
+        // m_cudaContextManager?.release();
+        // m_cudaContextManager = null;
     }
 
     void CreateGround()
@@ -290,7 +290,7 @@ public class SampleHelloGRB : SampleBase
     }
 
     PxDefaultCpuDispatcher m_cpuDispatcher;
-    PxCudaContextManager m_cudaContextManager;
+    // PxCudaContextManager m_cudaContextManager;
     PxScene m_scene;
     PxMaterial m_physicsMaterial;
     PxRigidStatic m_groundActor;

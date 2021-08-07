@@ -2,12 +2,15 @@ cmake_minimum_required(VERSION 3.14)
 
 project(NVIDIA.PhysX.Native VERSION 1.0 LANGUAGES CXX)
 
-#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1y -Wall -Wextra -Wno-unused-parameter -fPIC")
+# TODO:
+set(PHYSX_DIR "<PHYSX DIR>")  # Path to PhysX SDK root for example "/Users/username/PhysX"
 
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
-set(CMAKE_CXX_FLAGS_PROFILE "${CMAKE_CXX_FLAGS_PROFILE} /MT")
-set(CMAKE_CXX_FLAGS_CHECKED "${CMAKE_CXX_FLAGS_CHECKED} /MT")
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1y -Wall -Wextra -Wno-unused-parameter -fPIC")
+
+# set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
+# set(CMAKE_CXX_FLAGS_PROFILE "${CMAKE_CXX_FLAGS_PROFILE}")
+# set(CMAKE_CXX_FLAGS_CHECKED "${CMAKE_CXX_FLAGS_CHECKED}")
+# set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
 
 add_definitions(-DPX_PHYSX_STATIC_LIB)
 
@@ -34,12 +37,12 @@ endforeach()
 
 include_directories("${CMAKE_CURRENT_LIST_DIR}"
                     "${CMAKE_CURRENT_LIST_DIR}/Header"
-                    "$ENV{PHYSX_DIR}/physx/include"
-                    "$ENV{PHYSX_DIR}/pxshared/include")
+                    "${PHYSX_DIR}/physx/include"
+                    "${PHYSX_DIR}/pxshared/include")
 
-link_directories("$ENV{PHYSX_DIR}/physx/bin/win.x86_64.vc141.mt/$(Configuration)")
+link_directories("${PHYSX_DIR}/physx/bin/mac.x86_64")
 
-set(CMAKE_SWIG_FLAGS ${CMAKE_SWIG_FLAGS} -namespace NVIDIA.PhysX -nodefaultctor)
+set(CMAKE_SWIG_FLAGS ${CMAKE_SWIG_FLAGS} -namespace NVIDIA.PhysX -nodefaultctor -monoaotcompat)
 set(CMAKE_SWIG_OUTDIR "${CMAKE_CURRENT_LIST_DIR}/../NVIDIA.PhysX/Wrapper")
 set(SWIG_OUTFILE_DIR "${CMAKE_CURRENT_LIST_DIR}/Wrapper")
 
@@ -54,5 +57,5 @@ target_link_libraries(${PROJECT_NAME} PhysXFoundation_static_64
 
 add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD COMMAND ${CMAKE_COMMAND} -E remove_directory "${CMAKE_CURRENT_LIST_DIR}/../NVIDIA.PhysX/Wrapper")
 
-add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${PROJECT_NAME}> ../../Bin/${PROJECT_NAME}.dll
-                                                     COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${PROJECT_NAME}> "../../Unity/PhysX\ Plugin/Assets/NVIDIA/PhysX/Runtime/Plugins/x86_64/${PROJECT_NAME}.dll")
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${PROJECT_NAME}> ../../Bin/${PROJECT_NAME}.dylib
+                                                     COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${PROJECT_NAME}> "../../Unity/PhysX\ Plugin/Assets/NVIDIA/PhysX/Runtime/Plugins/osx64/${PROJECT_NAME}.dylib")

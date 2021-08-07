@@ -184,7 +184,7 @@ namespace physx
         }
         inline void clear()
         {
-            for (PxU32 i = 0; i < pack_count; ++i)
+            for (PxU32 i = 0; i < PACK_COUNT; ++i)
             {
                 m_packs[i] = 0;
             }
