@@ -135,7 +135,7 @@ namespace physx {
     class PxArticulationJointReducedCoordinate;
     class PxArticulationLink;
     class PxArticulationDriveCache;
-    class PxCudaContextManager;
+    //class PxCudaContextManager;
     class PxJoint;
     class PxFixedJoint;
     class PxDistanceJoint;
@@ -687,7 +687,7 @@ namespace physx {
     WRAPPER_CLASS(PxArticulation)
     WRAPPER_CLASS(PxArticulationReducedCoordinate)
     WRAPPER_CLASS(PxAggregate)
-    WRAPPER_CLASS(PxCudaContextManager)
+    //WRAPPER_CLASS(PxCudaContextManager)
     WRAPPER_CLASS(PxJoint)
     WRAPPER_CLASS(PxFixedJoint)
     WRAPPER_CLASS(PxRevoluteJoint);
@@ -1201,7 +1201,7 @@ namespace physx {
             void physx_PxSceneDesc_flags_set(physx::PxSceneDesc* desc, physx::PxSceneFlag::Enum flags) { desc->flags.set(flags); }
         %}}
         PxCpuDispatcher* cpuDispatcher;
-        PxCudaContextManager* cudaContextManager;
+        //PxCudaContextManager* cudaContextManager;
         PxPruningStructureType::Enum staticStructure;
         PxPruningStructureType::Enum dynamicStructure;
         PxU32 dynamicTreeRebuildRateHint;
@@ -2071,7 +2071,7 @@ namespace physx {
     public:
         %extend { static PxFoundation* create(PxVersion physicsVersion, PxAllocatorCallback& allocatorCallback, PxErrorCallback& errorCallback) { return PxCreateFoundation(physicsVersion, allocatorCallback, errorCallback); }}
         %extend { PxPhysics* createPhysics(PxVersion physicsVersion, const physx::PxTolerancesScale& scale = physx::PxTolerancesScale(), PxPvd* pvd = nullptr) { return PxCreatePhysics(physicsVersion, *self, scale, false, pvd); }}
-        %extend { PxCudaContextManager* createCudaContextManager(const char* dllPath) { return PxFoundation_createCudaContextManager(*self, dllPath); }}
+        //%extend { PxCudaContextManager* createCudaContextManager(const char* dllPath) { return PxFoundation_createCudaContextManager(*self, dllPath); }}
         %extend { PxPvd* createPvd() { return physx::PxCreatePvd(*self); }}
         %extend { PxCooking* createCooking(PxVersion physicsVersion, const PxCookingParams& params) { return PxCreateCooking(physicsVersion, *self, params); }}
         void release();
@@ -2192,7 +2192,7 @@ namespace physx {
         void setDominanceGroupPair(PxDominanceGroup group1, PxDominanceGroup group2, const PxDominanceGroupPair& dominance);
         PxDominanceGroupPair getDominanceGroupPair(PxDominanceGroup group1, PxDominanceGroup group2) const;
         PxCpuDispatcher* getCpuDispatcher() const;
-        PxCudaContextManager* getCudaContextManager() const;
+        //PxCudaContextManager* getCudaContextManager() const;
         PxClientID createClient();
         void setSimulationEventCallback(wrap::PxSimulationEventCallback* callback);
         wrap::PxSimulationEventCallback* getSimulationEventCallback() const;
@@ -2831,13 +2831,13 @@ namespace physx {
         virtual ~PxAggregate() {}
     };
 
-    class PxCudaContextManager {
-    public:
-        bool contextIsValid() const;
-        void release();
-    protected:
-        virtual ~PxCudaContextManager();
-    };
+    //class PxCudaContextManager {
+    //public:
+    //    bool contextIsValid() const;
+    //    void release();
+    //protected:
+    //    virtual ~PxCudaContextManager();
+    //};
 
     class PxJoint : public PxBase {
     public:

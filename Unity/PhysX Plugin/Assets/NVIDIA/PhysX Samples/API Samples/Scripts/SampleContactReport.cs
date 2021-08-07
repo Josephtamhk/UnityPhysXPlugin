@@ -41,7 +41,7 @@ public class SampleContactReport : SampleBase
 
     protected override void DestroySample()
     {
-        DestoryScene();
+        DestroyScene();
         base.DestroySample();
     }
 
@@ -82,7 +82,7 @@ public class SampleContactReport : SampleBase
         CreateObjects();
     }
 
-    void DestoryScene()
+    void DestroyScene()
     {
         foreach (var a in m_dynamicActors) a?.release();
         m_dynamicActors.Clear();
@@ -158,14 +158,14 @@ public class SampleContactReport : SampleBase
         m_contactMesh = CreateContactMesh();
 
         for (int i = 0; i < 1; ++i)
-            CreatePyramid(Vector3.forward * 2.0f * i, 20);
+            CreatePyramid(Vector3.forward * (2.0f * i), 20);
     }
 
     void CreatePyramid(Vector3 pos, int size)
     {
         for (int y = 0; y < size; ++y)
         {
-            var start = pos - Vector3.right * 0.5f * (size - 1 - y) + Vector3.up * (y + 0.5f);
+            var start = pos - Vector3.right * (0.5f * (size - 1 - y)) + Vector3.up * (y + 0.5f);
             for (int i = 0; i < size - y; ++i)
             {
                 // Create PxRigidDynamic

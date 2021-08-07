@@ -158,14 +158,14 @@ namespace NVIDIA.PhysX.Unity
             sceneDesc.flags |= m_enableCCD ? PxSceneFlag.ENABLE_CCD : 0;
             if (m_gpuSimulation)
             {
-                var cudaContextManager = PxPhysics.cudaContextManager;
-                if (cudaContextManager != null && cudaContextManager.contextIsValid())
-                {
-                    sceneDesc.cudaContextManager = cudaContextManager;
-                    sceneDesc.flags |= PxSceneFlag.ENABLE_GPU_DYNAMICS;
-                    sceneDesc.broadPhaseType = PxBroadPhaseType.GPU;
-                }
-                else
+                // var cudaContextManager = PxPhysics.cudaContextManager;
+                // if (cudaContextManager != null && cudaContextManager.contextIsValid())
+                // {
+                //     sceneDesc.cudaContextManager = cudaContextManager;
+                //     sceneDesc.flags |= PxSceneFlag.ENABLE_GPU_DYNAMICS;
+                //     sceneDesc.broadPhaseType = PxBroadPhaseType.GPU;
+                // }
+                // else
                     Debug.LogWarning("GPU simulation is not enabled or is not available on this hardware. Falling back to CPU.");
             }
             m_eventCallback = new EventCallback();
