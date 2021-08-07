@@ -43,6 +43,9 @@ Note: cmake does not support C# on macOS. However, SWIG does and this step might
 
 IL2CPP Support
 ---
+
+**You can grab the binaries and example project from the `macos-il2cpp` branch**
+
 I've documented the process of getting IL2CPP to work here. It was a long and arduous process because of some antiquated toolchains that were involved.
 Again, you will need Windows because cmake does not support c# on macOS.
 
