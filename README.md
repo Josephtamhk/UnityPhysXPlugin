@@ -52,7 +52,7 @@ Again, you will need Windows because cmake does not support c# on macOS.
 1. Make sure `where swig` (`which swig` for Windows) points to your newly built swig. (Set PATH variable)
 
 ### On Windows
-1. Store a copy the generated .cs files in Wrapper somewhere. We will only be replacing NativePINVOKE.cs!
+1. Store a copy the previously generated .cs files in Wrapper somewhere. We will only be replacing `NativePINVOKE.cs`!
 1. Add the `-monoaotcompat` flag to your `CMAKE_SWIG_FLAGS` (`set(CMAKE_SWIG_FLAGS ${CMAKE_SWIG_FLAGS} -namespace NVIDIA.PhysX -nodefaultctor -monoaotcompat)`)
 1. Generate and build the VS2017 solution as usual. You will only need the generated `NativePINVOKE.cs` file. Store that somewhere.
 
