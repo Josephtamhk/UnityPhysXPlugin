@@ -33,11 +33,12 @@ Build Instructions
 
 ### Build C# Bindings on Windows
 
-Note: The C# wrapper built using .NET 5.0 on macOS did not work for me. Using Windows to build the wrapper, however, did work. You may be luckier! Give it a try.
+Note: cmake does not support C# on macOS. However, SWIG does and this step might work on macOS if done manually.
 1. Copy your local repository over to your Windows partition/machine.
 1. Build PhysX (for Release) for Windows following the instructions for nvidia's [plugin repository](https://github.com/NVIDIAGameWorks/UnityPhysXPlugin)
 1. Using nvidia's fork as a base, replace the Header, Helpers, and Interface folder from this fork in `./NVIDIA.PhysX.Native/`.
 1. Generate and Build the VS2017 solution and collect the `NVIDIA.PhysX.dll` C# library.
+    1. Alternatively, you can also copy the generated Partial.cs and Wrapper folder to your Unity project.
 1. Back to your macOS machine. Put `NVIDIA.PhysX.dll` in your Unity projects's Wrapper (or Plugins) directory.
 
 Run
