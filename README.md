@@ -43,6 +43,9 @@ Note: cmake does not support C# on macOS. However, SWIG does and this step might
 
 IL2CPP Support
 ---
+
+**You can grab the binaries and example project from the `macos-il2cpp` branch**
+
 I've documented the process of getting IL2CPP to work here. It was a long and arduous process because of some antiquated toolchains that were involved.
 Again, you will need Windows because cmake does not support c# on macOS.
 
@@ -52,16 +55,18 @@ Again, you will need Windows because cmake does not support c# on macOS.
 1. Make sure `where swig` (`which swig` for Windows) points to your newly built swig. (Set PATH variable)
 
 ### On Windows
-1. Store a copy the previously generated .cs files in Wrapper somewhere. We will only be replacing `NativePINVOKE.cs`!
+1. Store a copy of the previously generated .cs files in Wrapper somewhere. We will need most of it later.
 1. Add the `-monoaotcompat` flag to your `CMAKE_SWIG_FLAGS` (`set(CMAKE_SWIG_FLAGS ${CMAKE_SWIG_FLAGS} -namespace NVIDIA.PhysX -nodefaultctor -monoaotcompat)`)
-1. Generate and build the VS2017 solution as usual. You will only need the generated `NativePINVOKE.cs` file. Store that somewhere.
-
-If you desire to use the C# dll. Build the C# project with the .cs files in the Wrapper folder from the previous build, replacing only `NativePINVOKE.cs` from the new build.
+1. Generate and build the VS2017 solution as usual. (It might fail, but the required files should have been generated.) Store the resulting Wrapper folder seperately and copy it over to your macOS partition.
 
 ### Back to macOS
 1. Here, we're only building the NVIDIA.Physx.Native.dylib library, but with the `-monoaotcompat` flag added to the `CMAKE_SWIG_FLAGS`.
 1. Follow the above instructions to get the native library.
-1. In your Unity project, replace the native library along with the `NativePINVOKE.cs` file. Done!
+1. In your Unity project (with the previous non-IL2CPP Wrapper), replace these files with the Wrapper .cs files that we just generated.
+    - NativePINVOKE.cs
+    - All files that end with \*Callback.cs (such as PxErrorCallback.cs)
+1. In those \*Callback.cs files, find in files to replace calls to `Dispose()` with `destroy()` to be compatible with the sample code.
+1. Done! Whew!
 
 Hints gathered along the way:
 - https://github.com/swig/swig/pull/1262
@@ -71,3 +76,4 @@ Run
 ---
 
 Start Unity and open `.\Unity\PhysX` project and try out the sample scenes.
+
