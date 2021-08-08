@@ -5,7 +5,7 @@ This fork is specifically set up for building for Android. All references to CUD
 
 Tested on Unity 2020.2.0f1, built with NDK v23's cmake toolchain on macOS 10.15
 
-![](https://media0.giphy.com/media/qD33CCx4D3Q4FXFMY3/giphy.gif?cid=790b7611c0f200b8d504dca615e2c4007547451b8d5dfb5d&rid=giphy.gif&ct=g)
+![](https://media.giphy.com/media/qD33CCx4D3Q4FXFMY3/giphy-downsized-large.gif)
 
 Prerequisites
 ---
